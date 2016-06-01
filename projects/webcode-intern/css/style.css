@@ -3,10 +3,13 @@
 [Table of Contents]
 
 X. GENERAL STYLES
+    - X-X. LOGO LINK STYLE
 
 X. HEADER AREA
-    - X. PRIMARY HEADER
-    - X. SECONDARY HEADER
+    - X-X. PRIMARY HEADER
+    - X-X. SECONDARY HEADER
+    
+X. FOOTER AREA
 
 */
 
@@ -21,11 +24,31 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+/* X-X. LOGO LINK STYLE */
+a.logo-link {
+    font-weight: 700;
+    color: #000;
+}
+a.logo-link:hover,
+a.logo-link:focus {
+    color: #000;
+}
+a.logo-link span {
+    font-family: "Georgia";
+    font-weight: 700;
+    font-style: italic;
+    color: #42b061;
+}
+
 /*--------------------------------------------
     X. HEADER AREA
 --------------------------------------------*/
-/* X-1. PRIMARY HEADER */
-/* X-1. SECONDARY HEADER */
+/* X-X. PRIMARY HEADER */
+/* X-X. SECONDARY HEADER */
 .header--secondary {
     height: 110px;
 }
@@ -38,19 +61,9 @@ body {
     height: auto;
     font-size: 36px;
     line-height: 40px;
-    font-weight: 700;
-    color: #000;
-}
-.header-secondary-navbar--brand:hover,
-.header-secondary-navbar--brand:focus {
-    color: #000;
 }
 .header-secondary-navbar--brand span {
-    font-family: "Georgia";
     font-size: 60px;
-    font-weight: 700;
-    font-style: italic;
-    color: #42b061;
 }
 
 .header-secondary-navbar--nav {
@@ -79,9 +92,34 @@ body {
 .header-secondary-navbar--nav .search-bar button {
     border: none;
     background-color: transparent;
+    outline: 0;
 }
 .header-secondary-navbar--nav .search-bar button:hover {
     color: #42B061;
+}
+
+/*--------------------------------------------
+    X. FOOTER AREA
+--------------------------------------------*/
+#footer {
+    background-color: #f5f5f5;
+}
+.footer--copyright {
+    padding: 35px 0;
+    border-top: 1px solid #e5e5e5;
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+}
+
+.footer-copyright--link,
+.footer-copyright--link:hover,
+.footer-copyright--link:focus {
+    color: #42b061;
+}
+
+.footer-copyright--link.logo-link span {
+    font-size: 30px;
 }
 
 /*--------------------------------------------
