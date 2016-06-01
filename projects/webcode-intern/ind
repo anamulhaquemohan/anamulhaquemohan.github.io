@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+    <title>Anamul - Intern Practice</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="Anamul">
+
+    <!--favicon icon-->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <!-- Common Stylesheets -->
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <!-- Header Area Start -->
+    <div id="header">
+        <!--
+        <div class="header--primary">
+            <div class="container">
+                <!-- ... -- >
+            </div>
+        </div>
+        -->
+        <div class="header--secondary" style="background-color: #f8f8f8;">
+            <div class="vc-parent">
+                <div class="vc-child">
+                    <nav class="header-secondary--navbar navbar">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#SecondaryheaderNavbar" aria-expanded="false" aria-controls="SecondaryheaderNavbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <!-- Logo Start -->
+                                <a href="#" class="header-secondary-navbar--brand navbar-brand"><span>i</span>ntern</a>
+                                <!-- Logo End -->
+                            </div>
+                            <div id="SecondaryheaderNavbar" class="header-secondary-navbar--nav navbar-collapse collapse">
+                                <div class="search-bar">
+                                    <button id="headerSearch"><i class="fa fa-search"></i></button>
+                                </div>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="active"><a href="#">Home</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Portfolio</a></li>
+                                    <li><a href="#">Offer</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area End -->
+    
+    <!-- Common Scripts -->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
