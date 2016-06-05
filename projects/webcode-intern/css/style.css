@@ -377,13 +377,33 @@ p:last-child {
 }
 
 /* X-X. ABOUT CONTENT */
+.about--content {
+    font-size: 14px;
+    line-height: 22px;
+    color: #707070;
+}
+
 .about--content h3 {
+    margin: -5px 0 -10px;
     color: #42b061;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.about--content p {
+    margin-top: 30px;
 }
 
 .about--content a.btn {
+    margin-top: 20px;
+    padding: 10px 30px;
     background-color: #42b061;
     color: #fff;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 800;
+    border: 2px solid #42b061;
+    border-radius: 4px;
     text-transform: uppercase;
     -webkit-transition: color .25s ease, background-color .25s ease-in-out;
             transition: color .25s ease, background-color .25s ease-in-out;
@@ -398,8 +418,8 @@ p:last-child {
     X. COURSES AREA
 --------------------------------------------*/
 #courses {
-    padding: 100px 0;
-    
+    padding: 130px 0;
+    background-color: #f8f8f8;
 }
 
 /* X-X. COURSE ITEM */
@@ -413,15 +433,31 @@ p:last-child {
 }
 
 .course-item--content {
-    border: 4px solid #e9e9e9;
+    border: 1px solid #ebebeb;
+    padding: 6px;
+    background-color: #fff;
     text-align: center;
-    -webkit-transition: border-color .25s ease-in-out;
-            transition: border-color .25s ease-in-out;
+    -webkit-transition: background-color .25s ease-in-out;
+            transition: background-color .25s ease-in-out;
 }
 .course-item--content:hover {
-    border-color: #42b061;
+    background-color: #42b061;
 }
 
+.course-item-content--inner {
+    padding: 25px 20px;
+    background-color: #f8f8f8;
+    -webkit-transition: background-color .25s ease-in-out;
+            transition: background-color .25s ease-in-out;
+}
+.course-item--content:hover .course-item-content--inner {
+    background-color: #fff;
+}
+
+.course-item-content--icon {
+    font-size: 38px;
+    line-height: 46px;
+}
 .course-item-content--icon i.fa {
     -webkit-transition: color .25s ease;
             transition: color .25s ease;
@@ -431,36 +467,65 @@ p:last-child {
 }
 
 .course-item-content--info h3 {
+    margin: 20px 0 5px;
+    font-size: 24px;
+    line-height: 32px;
+    color: #191919;
     -webkit-transition: color .25s ease;
-            transition: color .25s ease;
+    transition: color .25s ease;
 }
 .course-item--content:hover .course-item-content--info h3 {
     color: #42b061;
+}
+
+.course-item-content--info p {
+    color: #707070;
+    font-size: 14px;
+    line-height: 22px;
 }
 
 /*--------------------------------------------
     X. GALLERY AREA
 --------------------------------------------*/
 #gallery {
-    padding: 100px 0;
+    padding: 130px 0;
 }
 
 /* X-X. GALLERY FILTER MENU */
+.gallery--filter-menu {
+    margin-bottom: 50px;
+}
 .gallery--filter-menu ul {
+    margin-bottom: 0;
     font-size: 0;
     text-align: center;
-
 }
 .gallery--filter-menu ul li {
+    position: relative;
     display: inline-block;
     margin: 0 10px;
+    padding-bottom: 5px;
+    color: #707070;
     font-size: 14px;
+    font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
 }
 .gallery--filter-menu ul li:hover,
 .gallery--filter-menu ul li.active {
     color: #42b061;
+}
+.gallery--filter-menu ul li:before {
+    content: " ";
+    position: absolute;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 60px;
+    height: 2px;
+    margin: 0 auto;
+    background-color: #42b061;
 }
 
 /* X-X. GALLERY ITEM */
@@ -483,7 +548,8 @@ p:last-child {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(34, 34, 34, 0.25);
+    background-color: rgba(34, 34, 34, 0.8);
+    font-size: 0;
     text-align: center;
     -webkit-transition: top .25s ease-in-out;
             transition: top .25s ease-in-out;
@@ -492,9 +558,12 @@ p:last-child {
     top: 0;
 }
 .gallery-item-img--buttons a {
+    margin: 0 5px;
+    padding: 12px 15px 10px;
     color: #fff;
     background-color: #42b061;
     display: inline-block;
+    border-radius: 50%;
     -webkit-transition: color .25s ease, background-color .25s ease-in-out;
             transition: color .25s ease, background-color .25s ease-in-out;
 }
@@ -507,30 +576,55 @@ p:last-child {
 
 /* X-X. LOAD MORE BUTTON */
 .load-more-btn {
+    margin-top: 50px;
+    font-size: 0;
     text-align: center;
     text-transform: uppercase;
+}
+.load-more-btn a.btn {
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #363636;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 700;
+    -webkit-transition: background-color .25s ease-in-out;
+            transition: background-color .25s ease-in-out;
+}
+.load-more-btn a.btn:hover,
+.load-more-btn a.btn:focus {
+    background-color: #42b061;
 }
 
 /*--------------------------------------------
     X. OFFER AREA
 --------------------------------------------*/
 #offer {
-    padding: 100px 0;
+    padding: 130px 0;
+    background-color: #f8f8f8;
 }
 
 /* X-X. OFFER ITEM */
 .offer--item {
+    margin-bottom: 80px;
     overflow: hidden;
+}
+.offer--item:nth-last-child(1),
+.offer--item:nth-last-child(2),
+.offer--item:nth-last-child(3) {
+    margin-bottom: 0;
 }
 .offer-item--icon {
     float: left;
-    width: 70px;
-    height: 70px;
-    text-align: center;
+    width: 80px;
+    height: 80px;
     color: #222;
-    background-color: #f8f8f8;
+    background-color: #fff;
+    font-size: 26px;
     border-radius: 50%;
     border: 1px solid #e9e9e9;
+    text-align: center;
     -webkit-transition: color .25s ease, background-color .25s ease-in-out;
             transition: color .25s ease, background-color .25s ease-in-out;
 }
@@ -554,10 +648,14 @@ p:last-child {
 }
 
 .offer-item--info {
-    margin-left: 80px;
+    margin-left: 100px;
 }
 
 .offer--item .offer-item--info h4 {
+    margin: -5px 0 0;
+    color: #191919;
+    font-size: 24px;
+    line-height: 32px;
     -webkit-transition: color .25s ease;
             transition: color .25s ease;
 }
@@ -565,23 +663,37 @@ p:last-child {
     color: #42b061;
 }
 
+.offer-item--info p {
+    color: #707070;
+    font-size: 14px;
+    line-height: 22px;
+}
+
 /*--------------------------------------------
     X. TEAM AREA
 --------------------------------------------*/
 #team {
-    padding: 100px 0;
+    padding: 130px 0;
 }
 
 /* X-X. TEAM ITEM */
 .team-item--info {
+    padding: 25px 0 20px;
     border-bottom: 2px solid #222;
+    background-color: #f8f8f8;
     text-align: center;
+    -webkit-transition: border-color .25s ease-in-out, background-color .25s ease-in-out;
+            transition: border-color .25s ease-in-out, background-color .25s ease-in-out;
 }
 .team--item:hover .team-item--info {
     border-color: #42b061;
+    background-color: #fff;
 }
 
 .team-item--info h2 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 32px;
     -webkit-transition: color .25s ease;
             transition: color .25s ease;
 }
@@ -589,13 +701,19 @@ p:last-child {
     color: #42b061;
 }
 
+.team-item--info p {
+    color: #707070;
+    font-size: 16px;
+    line-height: 24px;
+}
+
 /*--------------------------------------------
     X. TESTIMONIAL AREA
 --------------------------------------------*/
 #testimonial {
     position: relative;
-    padding: 100px 0;
-    background-image: url('http://placehold.it/1600x1024');
+    padding: 130px 0;
+    background-image: url('../img/testimonial-bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -607,22 +725,31 @@ p:last-child {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 /* X-X. TESTIMONIAL ITEM */
+.testimonial--item {
+    margin-bottom: 70px;
+}
+.testimonial--item:nth-last-child(1),
+.testimonial--item:nth-last-child(2) {
+    margin-bottom: 0;
+}
+
 .testimonial-item--img {
     float: left;
     width: 80px;
 }
 
 .testimonial-item--info {
-    margin-left: 100px;
+    margin-left: 110px;
 }
 
 .testimonial-item-info--meta {
     position: relative;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
 }
 .testimonial-item-info--meta:before {
     content: " ";
@@ -635,8 +762,26 @@ p:last-child {
     background-color: #42b061;
 }
 
+.testimonial-item-info--meta h1 {
+    margin: -5px 0 5px;
+    color: #333333;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 700;
+}
+
 .testimonial-item-info--meta h2 {
+    margin: 0;
+    color: #333333;
+    font-size: 15px;
     font-style: italic;
+    line-height: 23px;
+}
+
+.testimonial-item-info--content {
+    color: #707070;
+    font-size: 15px;
+    line-height: 23px;
 }
 
 /*--------------------------------------------
