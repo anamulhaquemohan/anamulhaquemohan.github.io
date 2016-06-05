@@ -515,6 +515,7 @@ p:last-child {
 .gallery--filter-menu ul li.active {
     color: #42b061;
 }
+.gallery--filter-menu ul li:hover:before,
 .gallery--filter-menu ul li.active:before {
     content: " ";
     position: absolute;
