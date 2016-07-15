@@ -1,0 +1,87 @@
+/* General */
+body {
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+/*
+*   GALLERY AREA
+*/
+#gallery {
+    padding: 100px 0 70px;
+}
+
+/* GALLERY ITEMS */
+.gallery--items > .row > div {
+    margin-bottom: 30px;
+}
+
+.gallery--item {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    padding: 30px;
+}
+
+.gallery-overlay.primary--overlay {
+    left: -100%;
+    width: 65%;
+    color: #fff;
+    -webkit-transition: left .50s ease-in;
+            transition: left .50s ease-in;
+}
+.gallery--item:hover .gallery-overlay.primary--overlay {
+    left: 0;
+}
+
+.gallery-overlay.secondary--overlay {
+    right: -100%;
+    width: 35%;
+    color: #fff;
+    -webkit-transition: right 1.15s ease-in-out .50s;
+            transition: right .50s ease-in-out .50s;
+}
+.gallery--item:hover .gallery-overlay.secondary--overlay {
+    right: 0;
+}
+
+.gallery--social {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 25px;
+}
+.gallery--social ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+.gallery--social ul li {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.gallery--social ul li a {
+    display: block;
+    width: 35px;
+    padding: 6px 0;
+    color: #fff;
+    border: 1px solid #fff;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    -webkit-transition: color .25s ease, background-color .25s ease-in-out;
+            transition: color .25s ease, background-color .25s ease-in-out;
+}
+.gallery--social ul li a:hover,
+.gallery--social ul li a:focus {
+    color: #303030;
+    background-color: #fff;
+}
