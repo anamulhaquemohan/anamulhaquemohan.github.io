@@ -16,13 +16,6 @@ Author URL: http://themeforest.net/user/anamulhaquemohan
        Common Variables
        ------------------------------- */
     var $wn = $(window);
-  
-    /* -------------------------------
-       Scroll Animations
-       ------------------------------- */
-    var scrollAnimations = function () {
-        ScrollReveal().reveal('.Reveal', { duration: 800, mobile: false });
-    };
 
     /* -------------------------------
        Function calls
@@ -48,6 +41,4 @@ Author URL: http://themeforest.net/user/anamulhaquemohan
             $t.addClass('active').siblings().removeClass('active');
         });
     });
-    
-    $wn.on('load', scrollAnimations);
 })(jQuery);
