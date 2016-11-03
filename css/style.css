@@ -1,1 +1,214 @@
+/*------------------------------------------------------------------
 
+[Main Stylesheet]
+
+Project:    PortfolioS
+Version:    1.0
+Author:     anamulhaquemohan
+Author URL: http://themeforest.net/user/anamulhaquemohan
+
+
+NOTE:
+------
+PLEASE DO NOT EDIT THIS CSS, YOU MAY NEED TO USE "custom.css" FILE FOR WRITING YOUR CUSTOM CSS.
+WE MAY RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE. IT'S BETTER AND SAFER TO USE "custom.css".
+
+
+[Table of contents]
+
+X. General Styles
+
+X. Header Area
+    X.X. Header Logo
+
+X. Portfolio Area
+    X.X. Portfolio Filter Menu
+    X.X. Portfolio Header
+    X.X. Portfolio Item
+    X.X. Portfolio Action
+
+X. Copyright Area
+
+X. Helper Classes
+    X.1. Reset-gutter
+    X.2. Reset-Margin
+    X.3. Reset-Padding
+    X.4. Vertical-Centering
+
+-------------------------------------------------------------------*/
+/* -------------------------------
+   X. General Styles
+   ------------------------------- */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    color: #737373;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: #737373;
+    text-decoration: none;
+    outline: 0;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+.fa.fm {
+    margin-right: 10px;
+}
+
+/* -------------------------------
+   X. Portfolio Area
+   ------------------------------- */
+#portfolio {
+    padding: 50px 0;
+    background-color: #fff;
+}
+   
+/* X.X. Portfolio Filter Menu */
+.portfolio--filter-menu {
+    margin-top: 15px;
+}
+
+.portfolio--filter-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+    line-height: 0;
+    text-align: center;
+}
+
+.portfolio--filter-menu ul li {
+    display: inline-block;
+    margin: 15px 7.5px 0;
+    padding: 9px 19px 8px;
+    color: #303030;
+    border: 2px solid #303030;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    -webkit-transition: color .25s ease, background-color .25s ease-in-out;
+            transition: color .25s ease, background-color .25s ease-in-out;
+    cursor: pointer;
+}
+
+.portfolio--filter-menu ul li:hover,
+.portfolio--filter-menu ul li.active {
+    color: #fff;
+    background-color: #303030;
+}
+
+/* X.X. Portfolio Header */
+.portfolio--header {
+    padding-bottom: 10px;
+    margin: 30px 0;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.portfolio--header h2 {
+    margin: -4px 0 0;
+    color: #acacac;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 100;
+}
+
+/* X.X. Portfolio Item */
+.portfolio--item {
+    margin-bottom: 30px;
+}
+
+/* X.X. Portfolio Action */
+.portfolio--action {
+    position: absolute;
+    right: 30px;
+    bottom: 15px;
+}
+
+.portfolio--action a {
+    display: block;
+    padding: 4px 14px 3px;
+    color: #303030;
+    background-color: #fff;
+    border: 2px solid #303030;
+    font-weight: 700;
+    -webkit-transition: color .25s ease, background-color .25s ease-in-out;
+            transition: color .25s ease, background-color .25s ease-in-out;
+}
+
+.portfolio--action a:hover {
+    color: #fff;
+    background-color: #303030;
+}
+
+/* -------------------------------
+   X. Copyright Area
+   ------------------------------- */
+#copyright {
+    padding: 14px 0 13px;
+    color: #acacac;
+    background-color: #e9e9e9;
+    text-align: center;
+}
+
+#copyright img {
+    width: 15px;
+    margin: 0 6px;
+}
+
+/* -------------------------------
+   X. Helper Classes
+   ------------------------------- */
+/* X.1. Reset-gutter */
+.reset-gutter {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.reset-gutter > [class*='col-'] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* X.2. Reset-Margin */
+.reset-margin {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+/* X.3. Reset-Padding */
+.reset-padding {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* X.4. Vertical-Centering */
+.vc-parent {
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+.vc-child {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.vc-child-bottom {
+    display: table-cell;
+    vertical-align: bottom;
+}
