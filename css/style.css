@@ -134,12 +134,36 @@ p:last-child {
 
 /* X.X. Portfolio Action */
 .portfolio--action {
-    position: absolute;
-    right: 30px;
-    bottom: 15px;
+    margin-top: 15px;
+}
+
+.portfolio--action:before,
+.portfolio--action:after {
+    content: " ";
+    display: table;
+}
+
+.portfolio--action:before,
+.portfolio--action:after {
+    clear: both;
+}
+
+.portfolio--action h2 {
+    float: left;
+    margin: -5px 0 0;
+    color: #303030;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+.portfolio--action h2 small {
+    display: block;
+    margin-top: 3px;
 }
 
 .portfolio--action a {
+    float: right;
     display: block;
     padding: 4px 14px 3px;
     color: #303030;
