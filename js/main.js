@@ -20,7 +20,7 @@ Author URL: http://themeforest.net/user/anamulhaquemohan
     /* -------------------------------
        Function calls
        ------------------------------- */
-    $(function () {
+    $wn.on('load', function () {
         /* Portfolio Items */
         var $portfolio = $('#portfolio'),
             $portfolioFMenu = $portfolio.find('.portfolio--filter-menu'),
