@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    
+    <title>View Missing Google Fonts From Your System</title>
+    
+    <style>
+        table {
+            width: 95%;
+            margin: 80px auto;
+            padding: 0 20px;
+            border-collapse: collapse;
+            font-family: "Arial";
+        }
+        
+        thead {
+            background-color: #f1f1f1;
+            font-size: 18px;
+        }
+        
+        th {
+            font-weight: 500;
+        }
+        
+        th, td {
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        td:first-child {
+            width: 160px;
+        }
+        
+        small {
+            color: #999;
+            font-size: 14px;
+            font-style: italic;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>View Missing Google Fonts From Your System</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="th1">Count</th>
+                <th class="th2">Font Family</th>
+                <th class="th3">Status</th>
+                <th class="th4">Last Modified</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://www.lalit.org/wordpress/wp-content/uploads/2008/05/fontdetect.js?ver=0.3"></script>
+    <script>
+        (function ($) {
+            "use strict";
+            
+            $(function () {
+                // ...
+                var $th1 = $('.th1'),
+                    $th2 = $('.th2'),
+                    $th3 = $('.th3'),
+                    $th4 = $('.th4'),
+                    $tbody = $('tbody'),
+                    $detective = new Detector(),
+                    i = 0, markup = '', status,
+                    allFonts = [], missingFonts = '';
+                
+                String.prototype.capitalize = function () {
+                    if ( isNaN(parseInt( this.charAt(0) )) ) {
+                        return this.charAt(0).toUpperCase() + this.slice(1);
+                    }
+                    
+                    return this.slice(0, 3) + this.charAt(3).toUpperCase() + this.slice(4);
+                };
+                
+                $.getJSON('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyC4pwTL8kF1CrvLvkwyWD8LebGDnU-CPqI', function (res) {
+                    for ( i; i < res.items.length; i++ ) {
+                        if ( $detective.detect( res.items[i].family ) !== true ) {
+                            var $file = '';
+                            
+                            for ( var varient in res.items[i].files ) {
+                                $file += '<br><a href="'+ res.items[i].files[varient] +'" download="'+ res.items[i].family.replace(/\s/g, '') +'-'+ varient.capitalize() +'.ttf' +'">'+ res.items[i].family.replace(/\s/g, '') +'-'+ varient.capitalize() +'.ttf' +'</a>';
+                            }
+                            
+                            status = 'Not Installed! <br><br><small>Download: ' + $file + '</small>';
+                        } else {
+                            status = 'Installed!';
+                        }
+                        
+                        
+                        markup += '<tr><td>'+ (i + 1) +'</td><td>'+ res.items[i].family +'</td><td>'+ status +'</td><td>'+ res.items[i].lastModified +'</td></tr>';
+                    }
+                    
+                    
+                    $tbody.append( markup );
+                    
+                    
+                    $th1.append( ' <small>(Total '+ res.items.length +' Fonts)</small>' );
+                });
+            });
+        }(jQuery));
+    </script>
+
+</body>
+</html
