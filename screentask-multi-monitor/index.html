@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ScreenTask Multi-Monitor</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .iframe {
+            position: fixed;
+            width: 50%;
+            height: 50%;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            transition: all .45s linear;
+            cursor: pointer;
+            z-index: 0;
+        }
+
+        .iframe:nth-child(1) {
+            top: 0;
+            left: 0;
+        }
+
+        .iframe:nth-child(2) {
+            top: 0;
+            left: 50%;
+        }
+
+        .iframe:nth-child(3) {
+            top: 50%;
+            left: 0;
+        }
+
+        .iframe:nth-child(4) {
+            top: 50%;
+            left: 50%;
+        }
+
+        .iframe:before {
+            content: " ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .iframe.full {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition-property: top, left, right, bottom, width, height;
+            transition-duration: .45s;
+            transition-timing-function: linear;
+            z-index: 1;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            z-index: 0;
+        }
+
+        .ops {
+            position: absolute;
+            top: -101px;
+            left: 0;
+            right: 0;
+            padding: 20px 16px 21px;
+            color: #303030;
+            background-color: #fff;
+            border-bottom: 2px solid #000;
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+            transition: top .45s linear;
+            z-index: 999;
+        }
+
+        .opsToggle .ops {
+            top: 0;
+        }
+
+        .opsBtn {
+            position: absolute;
+            right: 20px;
+            bottom: -36px;
+            padding: 3px 20px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.55);
+            border: 0;
+            border-radius: 0 0 4px 4px;
+            font-size: 18px;
+            line-height: 28px;
+            transition: top .45s linear;
+            outline: 0;
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .ops ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .ops li {
+            display: inline-block;
+            width: 32.333%;
+        }
+
+        .ops label {
+            cursor: pointer;
+        }
+
+        .ops a {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #000;
+            border-bottom: 1px solid;
+            font-size: 18px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="iframe" onclick="this.classList.toggle('full');">
+        <iframe src=""></iframe>
+    </div>
+
+    <div class="iframe" onclick="this.classList.toggle('full');">
+        <iframe src=""></iframe>
+    </div>
+
+    <div class="iframe" onclick="this.classList.toggle('full');">
+        <iframe src=""></iframe>
+    </div>
+
+    <div class="iframe" onclick="this.classList.toggle('full');">
+        <iframe src=""></iframe>
+    </div>
+
+    <div class="ops">
+        <button class="opsBtn" onclick="document.body.classList.toggle('opsToggle');">Menu</button>
+
+        <ul>
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>http://192.168.1.100:7070/</span>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>http://192.168.1.101:7070/</span>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>http://192.168.1.102:7070/</span>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>http://192.168.1.103:7070/</span>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>http://192.168.1.104:7070/</span>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>http://192.168.1.105:7070/</span>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>http://192.168.1.106:7070/</span>
+                </label>
+            </li>
+        </ul>
+
+        <a href="helper.zip" download>helper.zip</a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        (function ($) {
+            "use strict";
+
+            Array.prototype.remove = function() {
+                var what, a = arguments, L = a.length, ax;
+
+                while (L && this.length) {
+                    what = a[--L];
+                    while ((ax = this.indexOf(what)) !== -1) {
+                        this.splice(ax, 1);
+                    }
+                }
+
+                return this;
+            };
+
+            $(function () {
+                var $checkboxs = $('input[type="checkbox"]'),
+                    $urls = [], urls = '';
+
+                if ( localStorage.getItem('$urls') !== null ) {
+                    urls = localStorage.getItem('$urls').split(',');
+
+                    $.each(urls, function (x, y) {
+                        if ( this.length ) {
+                            $checkboxs.next('span:contains('+ this +')')
+                                .siblings('input')
+                                .prop('checked', 'true');
+
+                            $('iframe[src=""]')[0].src = this;
+                            $urls.push( this );
+                        }
+                    });
+                }
+
+                $checkboxs.on('click', function () {
+                    var $t = $(this),
+                        $url = $t.next('span').text();
+
+                    if ( $t.is(':checked') ) {
+                        if ( $urls.length < 4 ) {
+                            $('iframe[src=""]')[0].src = $url;
+                            $urls.push( $url );
+                            localStorage.setItem('$urls', $urls);
+                        } else {
+                            alert( "You can not add more than 4 windows." );
+                            $t.prop('checked', false);
+                        }
+                    } else {
+                        $('iframe[src="'+ $url  +'"]')[0].src = '';
+                        $urls.remove( $url );
+                        localStorage.setItem('$urls', $urls);
+                    }
+
+                    document.body.classList.toggle('opsToggle');
+                });
+            });
+        }(jQuery));
+    </script>
+
+</body>
+</html>
