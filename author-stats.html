@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document Title</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+
+    <style>
+        html, body {
+            height: 100%;
+            color: #696969;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            margin-bottom: 0;
+            color: #222;
+            font-weight: 500;
+        }
+
+        strong {
+            font-weight: 500;
+        }
+
+        a {
+            color: #49b050;
+            transition: color .25s, border-color .25s ease-in-out, background-color .25s ease-in-out;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #49b050;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            color: #222;
+        }
+
+        th.active {
+            background-color: #f9f9f9;
+        }
+
+        th, td {
+            padding: 5px 15px;
+            border-bottom: 1px solid #e5e5e5;
+            text-align: left;
+        }
+
+        th + th,
+        td + td {
+            border-left: 1px solid #e5e5e5;
+        }
+
+        [data-ng-click] {
+            cursor: pointer;
+        }
+
+        .text-lighter {
+            color: #999;
+        }
+
+        .btn-link {
+            color: inherit;
+        }
+
+        .btn {
+            display: inline-block;
+            position: relative;
+            padding: 3px 15px;
+            color: #fff;
+            background-color: #49b050;
+            border-radius: 3px;
+            z-index: 0;
+        }
+
+        .btn:hover {
+            color: #fff;
+        }
+
+        .btn:before {
+            content: " ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #000;
+            opacity: 0;
+            transition: opacity .25s ease-in-out;
+            z-index: -1;
+        }
+
+        .btn:hover:before {
+            opacity: 0.15;
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #fff;
+            transition-property: opacity, visibility;
+            transition-duration: .25s;
+            transition-delay: .55s;
+            transition-timing-function: ease-in-out;
+            z-index: 999;
+        }
+
+        .preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .app {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            height: 100%;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+
+        .app__sidebar {
+            width: 280px;
+            background-color: #f9f9f9;
+            border-right: 1px solid #e5e5e5;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+
+        .app__user {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            padding: 14px 20px;
+            border-bottom: 1px solid #e5e5e5;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .app__user__img {
+            max-width: 80px;
+            margin-right: 15px;
+        }
+
+        .app__user__info .btn {
+            margin-top: 5px;
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        .app__user__name {
+            margin-top: -8px;
+        }
+
+        .app__user__location {
+            color: #999;
+        }
+
+        .app__user__location i {
+            margin-right: 5px;
+        }
+
+        .app__user--stats {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            background-color: #f1f1f1;
+            border-bottom: 1px solid #e5e5e5;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .app__user--stats li {
+            -ms-flex-preferred-size: 0;
+            flex-basis: 0;
+            -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            max-width: 100%;
+            padding: 20px 20px 18px;
+            text-align: center;
+        }
+
+        .app__user--stats li + li {
+            border-left: 1px solid #e5e5e5;
+        }
+
+        .app__user--stats strong {
+            display: block;
+            color: #222;
+            font-size: 18px;
+        }
+
+        .app__content {
+            position: relative;
+            height: 100%;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 74%;
+            flex: 0 0 74%;
+            max-width: 74%;
+            z-index: 0;
+        }
+
+        .panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 7px;
+            bottom: 20px;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+            z-index: 0;
+        }
+
+        .panel + .panel {
+            margin-top: 20px;
+        }
+
+        .panel__title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 10px 20px 9px;
+            background-color: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            font-size: 18px;
+            z-index: 0;
+        }
+
+        .panel__title span {
+            color: #999;
+        }
+
+        .panel__title span.active {
+            color: #49b050;
+        }
+
+        .panel__body {
+            height: 100%;
+            overflow: auto;
+        }
+
+        .panel__body table {
+            margin-top: 44px;
+        }
+
+        .app__nav__items {
+            margin: 30px 0 0;
+            padding: 0;
+            list-style: none;
+            color: #222;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .app__nav__item {
+            padding: 13px 20px;
+            border-bottom: 1px solid #e5e5e5;
+            transition: background-color .25s ease-in-out;
+            cursor: pointer;
+        }
+
+        .app__nav__item:hover,
+        .app__nav__item.active {
+            background-color: #f1f1f1;
+        }
+
+        .app__nav__item:before {
+            content: "\f105";
+            margin-right: 8px;
+            color: #999;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+
+    <!-- Preload Start -->
+    <div class="preloader"></div>
+    <!-- Preload End -->
+
+    <!-- App Start -->
+    <div class="app" data-ng-app="app01" data-ng-controller="controller01">
+        <div class="app__sidebar">
+            <div class="app__user">
+                <a href="{{ $authorURL }}?ref=anamulhaquemohan" class="app__user__img" target="_blank">
+                    <img src="{{ $authorAvatar }}" alt="{{ $authorName }}">
+                </a>
+
+                <div class="app__user__info">
+                    <h3 class="app__user__name">
+                        <a href="{{ $authorURL }}?ref=anamulhaquemohan" class="btn-link" target="_blank">{{ $authorName|capitalize }}</a>
+                    </h3>
+                    <p class="app__user__location" data-ng-if="$authorLocation"><i class="fa fa-map-marker-alt"></i>{{ $authorLocation }}</p>
+                    <a href="https://themeforest.net/user/{{ $authorName }}?ref=anamulhaquemohan" class="btn" target="_blank">Follow</a>
+                </div>
+            </div>
+
+            <ul class="app__user--stats">
+                <li><strong>{{ $authorItems }}</strong>Items</li>
+                <li><strong>{{ $authorSales }}</strong>Sales</li>
+                <li><strong>{{ $authorFollowers }}</strong>Followers</li>
+            </ul>
+
+            <div class="app__nav">
+                <ul class="app__nav__items">
+                    <li class="app__nav__item active">Most Sold Items</li>
+                    <li class="app__nav__item">Blank Page</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="app__content">
+            <div class="panel">
+                <h2 class="panel__title">Most Sold Items on <span data-ng-click="$productItems=$productsTF;$productShown='tf'" data-ng-class="{'active': $productShown==='tf'}">'ThemeForest'</span> / <span data-ng-click="$productItems=$productsCC;$productShown='cc'" data-ng-class="{'active': $productShown==='cc'}">'Codecanyon'</span></h2>
+
+                <div class="panel__body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Position</th>
+                                <th>Sales</th>
+                                <th>Price</th>
+                                <th>Product</th>
+                                <th>Category</th>
+                            </tr>
+                        </thead>
+                        <tr data-ng-repeat="$product in $productItems|orderBy:'-sales'">
+                            <td>#{{ $index + 1 }}</td>
+                            <td>{{ $product.sales }}</td>
+                            <td>{{ $product.cost }}</td>
+                            <td><a href="{{ $product.url }}?ref=anamulhaquemohan" class="btn-link">{{ $product.item }}</a></td>
+                            <td>{{ $product.category|lastslashword|capitalize }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- App End -->
+
+    <script>
+        // Common Variables
+        var $head = document.getElementsByTagName('head')[0],
+            $author = localStorage.getItem('author');
+
+        if ( typeof $author !== 'string' ) {
+            $author = prompt('Please type the author name...', 'e.g. collis');
+            localStorage.setItem('author', $author);
+        }
+
+        // Functions
+        var $formatJSONData = function ($data) {
+            for ( var $i in $data ) {
+                $data[$i].sales = parseInt( $data[$i].sales, 10 );
+                $data[$i].serial = $i + 1;
+            }
+
+            return $data;
+        };
+
+        // AngularJS App
+        var $app01 = angular.module('app01', []);
+
+        // AngularJS Filter
+        $app01.filter('capitalize', function () {
+            return function (txt) {
+                return String( txt ).replace(/\b\w/g, function (str){
+                    return str.toUpperCase();
+                });
+            };
+        });
+
+        $app01.filter('lastslashword', function () {
+            return function (txt) {
+                var txt = String( txt ).split('/');
+                return txt[ txt.length - 1 ];
+            };
+        });
+
+        // AngularJS Controller
+        $app01.controller('controller01', function ($scope, $http) {
+            // Get Data
+            $http.get('https://marketplace.envato.com/api/edge/new-files-from-user:'+ $author +',codecanyon.json').then(function (res) {
+                $scope.$productsCC = $formatJSONData( res.data['new-files-from-user'] );
+            });
+
+            $http.get('https://marketplace.envato.com/api/edge/releases+user:'+ $author +'+user-badges:'+ $author +'+user-items-by-site:'+ $author +'+new-files-from-user:'+ $author +',themeforest.json').then(function (res) {
+                console.log( res );
+
+                // Scoped Functions
+                var $totalItems = function () {
+                    var $count = 0, $i;
+
+                    for ( $i in res.data['user-items-by-site'] ) {
+                        $count += parseInt( res.data['user-items-by-site'][$i].items, 10 );
+                    }
+
+                    return $count;
+                };
+
+                // Variables
+                $scope.$authorName = res.data.user.username;
+                $scope.$authorAvatar = res.data.user.image;
+                $scope.$authorURL = 'https://'+ String( res.data['user-items-by-site'][0].site ).toLowerCase() +'.net/user/'+ $scope.$authorName;
+                $scope.$authorLocation = res.data.user.location;
+                $scope.$authorItems = $totalItems();
+                $scope.$authorSales = res.data.user.sales;
+                $scope.$authorFollowers = res.data.user.followers;
+                $scope.$productsTF = $formatJSONData( res.data['new-files-from-user'] );
+                $scope.$productItems = $scope.$productsTF;
+                $scope.$productShown = 'tf';
+
+                // Document Title
+                document.title = String( $scope.$authorName ).replace(/\b\w/g, function (str){
+                    return str.toUpperCase() + ' - Statistics';
+                });
+
+                // Favicon
+                var link = document.querySelector('link[rel*="icon"]') || document.createElement('link');
+
+                link.type = 'image/png';
+                link.rel = 'icon';
+                link.href = $scope.$authorAvatar;
+
+                $head.appendChild( link );
+
+                // Preloader
+                var $preloader = document.getElementsByClassName('preloader')[0];
+
+                $preloader.classList = 'preloader hide';
+            });
+        });
+    </script>
+
+</body>
+</html>
