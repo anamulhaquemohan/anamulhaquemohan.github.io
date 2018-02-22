@@ -450,8 +450,8 @@
 
                 // Document Title
                 document.title = String( $scope.$authorName ).replace(/\b\w/g, function (str){
-                    return str.toUpperCase() + ' - Statistics';
-                });
+                    return str.toUpperCase();
+                }) + ' - Statistics';
 
                 // Favicon
                 var link = document.querySelector('link[rel*="icon"]') || document.createElement('link');
